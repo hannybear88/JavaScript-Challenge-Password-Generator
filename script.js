@@ -34,7 +34,7 @@ while (validEntry=== false) {
   var passwordLength = prompt("How many characters would you like to use? Please enter between 8 and 128 characters.");
  
   if (passwordLength < 8 || passwordLength > 128) {
-
+     alert("Please enter a number between 8 and 128");
     validEntry = false;
   } else {
     validEntry = true;
@@ -42,6 +42,11 @@ while (validEntry=== false) {
   }
 }
 }
+
+console.log("Your password will be: " + passwordLength + " chracters long.")
+
+var useSpecialsymbols = confirm("Would you like to include special characters in your password?");
+console.log("Using special symbol characters: " + useSpecialsymbols + ".");
 
 // Write password to the #password input
 function writePassword() {
