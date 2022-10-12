@@ -8,7 +8,7 @@ var alphaUppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O
 // Numbers to use in password
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 // Special symbols to use in password
-var Specialsymbols = ["!","\"","#","$","%","&","\'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
+var Symbols = ["!","\"","#","$","%","&","\'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
 
 //Stores what the password length is in the memory
 var passwordLength; 
@@ -30,11 +30,11 @@ var validEntry = false;
 function generatePassword(){
 // Sets up the password length based on the prompt
 validEntry = false;
-while (validEntry=== false) {
+while (validEntry === false) {
   var passwordLength = prompt("How many characters would you like to use? Please enter between 8 and 128 characters.");
  
   if (passwordLength < 8 || passwordLength > 128) {
-     alert("Please enter a number between 8 and 128");
+     //alert("Please enter a number between 8 and 128");
     validEntry = false;
   } else {
     validEntry = true;
@@ -45,8 +45,13 @@ while (validEntry=== false) {
 
 console.log("Your password will be: " + passwordLength + " chracters long.")
 
-var useSpecialsymbols = confirm("Would you like to include special characters in your password?");
-console.log("Using special symbol characters: " + useSpecialsymbols + ".");
+var useSymbols = confirm("Would you like to include symbol characters in your password?");
+console.log("Using special symbol characters: " + useSymbols + ".");
+
+for (var i = 0; i < passwordLength; i++) {
+  var randomChar = pwChoices[Math.floor(Math.random() * pwOptions.length)];
+  pwArray[i] = randomChar;
+}
 
 // Write password to the #password input
 function writePassword() {
