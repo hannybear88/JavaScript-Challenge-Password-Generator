@@ -14,26 +14,27 @@ var passwordArray = [];
 // Generate Password
 var generateBtn = document.querySelector("#generate");
 // Resets Password
-var resetBtn = documet.querySelector("#reset")
+var resetBtn = document.querySelector("#reset")
 
+var passwordText = document.querySelector("#password");
+ 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 //Add event listener to reset button
 resetBtn.addEventListener("click", resetPassword); 
 
+
+// resets password
+function resetPassword() {
+  passwordText.value = "";
+ 
+}
 // Write password to the #password input
 function writePassword() {
   var validEntry = getPrompts();
   var passwordText = document.querySelector("#password");
-  passwordArray = "";
- 
-  // resets password
-  function resetPassword() {
-    getPrompts();
-    passwordText.value = "";
-   
-  }
 
+ 
 if (validEntry) {
   var reGeneratedPassword = generatePassword();
   passwordText.value = reGeneratedPassword;
