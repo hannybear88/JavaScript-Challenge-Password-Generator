@@ -33,7 +33,7 @@ function resetPassword() {
 function writePassword() {
   var validEntry = getPrompts();
   var passwordText = document.querySelector("#password");
-
+  passwordArray = "";
  
 if (validEntry) {
   var reGeneratedPassword = generatePassword();
