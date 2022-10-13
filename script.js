@@ -13,7 +13,7 @@ var passwordArray = [];
 // Assignment Code
 // Generate Password
 var generateBtn = document.querySelector("#generate");
-// Reset Password
+// Resets Password
 var resetBtn = documet.querySelector("#reset")
 
 // Add event listener to generate button
