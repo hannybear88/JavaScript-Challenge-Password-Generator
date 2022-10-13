@@ -1,8 +1,3 @@
-//Testing code
-
-var passwordLength = 8;
-var passwordArray = [];
-
 // Lower case alphabet lettes to use in password
 var alphaLowercaseArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 // Upper case alphabet to use in password 
@@ -12,16 +7,32 @@ var numbersArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 // Special symbols to use in password
 var specialCharactersArray =  [" ", "!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 
+var passwordLength = 8;
+var passwordArray = [];
+
 // Assignment Code
+// Generate Password
 var generateBtn = document.querySelector("#generate");
+// Reset Password
+var resetBtn = documnet.querySelector("#reset")
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+//Add event listener to reset button
+resetBtn.addEventListener("click", resetPassword); 
 
 // Write password to the #password input
 function writePassword() {
   var validEntry = getPrompts();
   var passwordText = document.querySelector("#password");
+  var passwordArray = "";
+ 
+  // resets password
+  function resetPassword() {
+    var validEntry = getPrompts();
+    var passwordText = document.querySelector("#password");
+   
+  }
 
 if (validEntry) {
   var reGeneratedPassword = generatePassword();
@@ -45,7 +56,7 @@ function getPrompts(){
     passwordArray = [];
     passwordLength = parseInt(prompt("How many characters would you like to use? Please enter between 8 and 128 characters."));
 
-    if(isNaN(passwordLength) || characterLength < 8 || passwordLength > 128) {
+    if(passwordLength < 8 || passwordLength > 128) {
     alert("Password length must be between 8 and 128 characters. Please try again.");
     return false;
  }
