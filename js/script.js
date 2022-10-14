@@ -13,7 +13,7 @@ var passwordArray = [];
 
 // Generates Password
 var generateBtn = document.querySelector("#generate");
-// Resets Password
+// Resets Password Button
 var resetBtn = document.querySelector("#reset")
 
 var passwordText = document.querySelector("#password");
