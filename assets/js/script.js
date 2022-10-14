@@ -13,14 +13,16 @@ var passwordLength = 8;
 var passwordArray = []; 
 
 
-// Generates Password
+// Generates Password Button
 var generateBtn = document.querySelector("#generate");
+
 // Resets Password Button
 var resetBtn = document.querySelector("#reset")
 
+
 var passwordText = document.querySelector("#password");
 
-
+// Copy to Clipboard Button
 var copy = document.querySelector("#copy");
  
 // Add event listener to generate button
@@ -37,14 +39,14 @@ function resetPassword() {
   passwordText.value = "";
 
   // Copies password to clipboard
-function copyPassword() {
+function copyPassword() 
   document.getElementById("password").select();
   document.execCommand("Copy");
   alert("Your new password has been copied to your clipboard!");
-}
 
+  
 // Write password to the #password input
-function writePassword() {
+function writePassword() 
   var validEntry = getPrompts();
   var passwordText = document.querySelector("#password");
   var passwordArray = "";
@@ -54,7 +56,7 @@ if (validEntry) {
   passwordText.value = reGeneratedPassword;
 } else { 
   passwordText.value = "";
-}
+
 }
 
 function generatePassword() {
@@ -103,7 +105,7 @@ function getPrompts(){
   );
   }
   if (
-  
+
     useSpecialCharactersArray === false &&
     useNumericArray === false &&
     useAlphaLowercaseArray === false &&
