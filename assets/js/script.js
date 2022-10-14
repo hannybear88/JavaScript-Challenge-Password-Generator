@@ -19,44 +19,36 @@ var generateBtn = document.querySelector("#generate");
 // Resets Password Button
 var resetBtn = document.querySelector("#reset")
 
-
+//
 var passwordText = document.querySelector("#password");
 
-// Copy to Clipboard Button
-var copy = document.querySelector("#copy");
- 
+
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 //Add event listener to reset button
 resetBtn.addEventListener("click", resetPassword); 
 
-//Add event listener to copy button
-copyBtn.addEventListener("click",copyPassword);
+
 
 
 // Resets password
 function resetPassword() {
-  passwordText.value = "";
+passwordText.value = ""; 
+}
 
-  // Copies password to clipboard
-function copyPassword() 
-  document.getElementById("password").select();
-  document.execCommand("Copy");
-  alert("Your new password has been copied to your clipboard!");
-
-  
 // Write password to the #password input
-function writePassword() 
+function writePassword() {
   var validEntry = getPrompts();
   var passwordText = document.querySelector("#password");
   var passwordArray = "";
- 
+
 if (validEntry) {
   var reGeneratedPassword = generatePassword();
   passwordText.value = reGeneratedPassword;
 } else { 
   passwordText.value = "";
-
+}
 }
 
 function generatePassword() {
@@ -103,7 +95,7 @@ function getPrompts(){
   var useNumbericArray = confirm(
     "Click OK to confirm that you would like to include numbers in your password."
   );
-  }
+  
   if (
 
     useSpecialCharactersArray === false &&
@@ -124,4 +116,20 @@ function getPrompts(){
     };
 
     return passwordArray 
+}
+
+
+// Copy to Clipboard Button
+var copy = document.querySelector("#copy");
+//Add event listener to copy button
+copyBtn.addEventListener("click",function() {
+  copyPassword()
+});
+
+  // Copies password to clipboard
+  function copyPassword() {
+    document.getElementById("password").select();
+    document.execCommand("Copy");
+    alert("Your new password has been copied to your clipboard!");
   }
+
