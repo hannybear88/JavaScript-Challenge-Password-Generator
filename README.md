@@ -22,7 +22,7 @@ Installation is not required, unless you plan on refactoring the code. Please <a
 
 ## How to Use the Project
 
-<a href=https://hannybear88.github.io/JavaScript-Challenge-Password-Generator/">Click here</a> to be directed straight to the deployed application
+<a href=https://hannybear88.github.io/JavaScript-Challenge-Password-Generator/>Click here</a> to be directed straight to the deployed application
 
 <img src="./assets/images/JavaScript-Challenge-Password-Generator-Screenshot.png" /> 
 
