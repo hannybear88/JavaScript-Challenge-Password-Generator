@@ -6,19 +6,19 @@ var useNumericArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var useAlphaLowercaseArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 // Upper case alphabet to use in password 
 var useAlphaUppercaseArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-//
+// Stores booleon response on use of special characters
 var hasSpecialCharacters
-//
+// Stores booleon response on use of lowercase letters
 var hasAlphaLowercase
-//
+// Stores booleon response on use of uppercase letters
 var asAlphaUppercase
-//
+// Stores booleon response on use of numeric characters
 var hasAlphaUppercase
 
 
 var passwordLength = 8;
 var passwordArray = []; 
-var passwordOptions = [];
+
 
 
 // Generates Password Button
@@ -27,7 +27,7 @@ var generateBtn = document.querySelector("#generate");
 // Resets Password Button
 var resetBtn = document.querySelector("#reset")
 
-//
+// password
 var passwordText = document.querySelector("#password");
 
 
@@ -71,16 +71,20 @@ for(var i = 0; i < passwordLength; i++) {
   return password;
 }
 
+// Prompt for password length
 function getPrompts(){
     passwordArray = [];
     passwordLength = 
       prompt(
       "How many characters would you like to use? Please enter between 8 and 128 characters."
       );
+      // ERROR! Alert when the user clicks okay without entering anything or clicks cancel.
    if (passwordLength == null || passwordLength == "")
   {
     alert("ERROR! You did not choose a password criteria. You must choose at least one to continue.");
- } 
+
+    // Password length must be between 8 to 128 characters.
+  } 
 console.log(passwordLength)
     if(passwordLength < 8 || passwordLength > 128) {
     alert(
@@ -109,6 +113,8 @@ console.log(passwordLength)
     "Click OK to confirm that you would like to include numbers in your password."
   );
   
+
+    // A function is called to run again when the value is other than false
   if (
 
     useSpecialCharactersArray === false &&
@@ -117,12 +123,14 @@ console.log(passwordLength)
     useAlphaUppercaseArray === false
   ) {
    
+    // Alert after a password has been successfully created.
    return writePassword();
   } else{
     alert("Congratulations! You have auspiciously created a secure password! ");
 
   }
 
+  // IF conditions to check if user said yes for a particular option ; Concats array values into passwordArray
     if(hasSpecialCharacters)
     {
       passwordArray = passwordArray.concat(useSpecialCharactersArray);
