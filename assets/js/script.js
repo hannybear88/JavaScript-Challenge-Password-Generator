@@ -11,6 +11,7 @@ var useAlphaUppercaseArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M
 
 var passwordLength = 8;
 var passwordArray = []; 
+var passwordOptions = [];
 
 
 // Generates Password Button
@@ -77,31 +78,31 @@ function getPrompts(){
   }
 
   // Variable to store boolean regarding the includsion of special characters. 
-    var uuseSpecialCharactersArray = confirm(
+    var hasSpecialCharacters = confirm(
       "Click OK to confirm that you would like to include special characters in your password."
     );
 
   // Variable to store boolean regarding the includsion of numberic characters. 
-  var useAlphaLowercaseArray = confirm(
+  var hasAlphaLowercase = confirm(
     "Click OK to confirm that you would like to include lowercase letters in your password."
   );
 
   // Variable to store boolean regarding the includsion of lowercase letters. 
-  var useAlphaUppercaseArray = confirm(
+  var hasAlphaUppercase = confirm(
     "Click OK to confirm that you would like to include uppercase letters in your password."
   );
 
   // Variable to store boolean regarding the inclusion of uppercase letters. 
-  var useNumbericArray = confirm(
+  var hasNumbericChracters = confirm(
     "Click OK to confirm that you would like to include numbers in your password."
   );
   
   if (
 
-    useSpecialCharactersArray === false &&
-    useNumericArray === false &&
-    useAlphaLowercaseArray === false &&
-    useAlphaUppercaseArray === false
+    hasSpecialCharacters === false &&
+    hasNumericCharacters === false &&
+    hasAlphaLowercase === false &&
+    hasAlphaUppercase === false
   ) {
 
     alert("ERROR! You did not choose a password criteria. You must choose at least one.");
@@ -122,7 +123,7 @@ function getPrompts(){
 // Copy to Clipboard Button
 var copy = document.querySelector("#copy");
 //Add event listener to copy button
-copyBtn.addEventListener("click",function() {
+copy.addEventListener("click",function() {
   copyPassword()
 });
 
