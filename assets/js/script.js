@@ -111,10 +111,10 @@ console.log(passwordLength)
   
   if (
 
-    useSpecialCharactersArray == false &&
-    useNumericArray == false &&
-    useAlphaLowercaseArray == false &&
-    useAlphaUppercaseArray == false
+    useSpecialCharactersArray === false &&
+    useNumericArray === false &&
+    useAlphaLowercaseArray === false &&
+    useAlphaUppercaseArray === false
   ) {
    
    return writePassword();
