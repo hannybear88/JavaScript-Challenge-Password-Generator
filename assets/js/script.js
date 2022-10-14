@@ -92,4 +92,27 @@ function getPrompts(){
   return true;
   }
 }
-
+if (
+  specialCharactersArray === false &&
+  numbersArray === false &&
+  alphaLowercaseArray === false &&
+  symbols === false
+) {
+  alert("You must chose at least one Password criteria.");
+  return writePassword();
+} else {
+  alert("You Have Successfully Created A Strong Password");
+}
+//
+if (lowercases) {
+  passwordArray += key_strings.specialCharactersArray;
+}
+if (uppercases) {
+  passwordArray  += key_strings.nunumbersArray;
+}
+if (numbers) {
+  passwordArray  += key_strings.alphaLowercaseArray;
+}
+if (symbols) {
+  passwordArray  += key_strings.alphaUppercaseArray;
+}
