@@ -17,18 +17,30 @@ var generateBtn = document.querySelector("#generate");
 var resetBtn = document.querySelector("#reset")
 
 var passwordText = document.querySelector("#password");
+
+
+var copy = document.querySelector("#copy");
  
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 //Add event listener to reset button
 resetBtn.addEventListener("click", resetPassword); 
 
+//Add event listener to copy button
+copyBtn.addEventListener("click",copyPassword);
 
-// resets password
+
+// Resets password
 function resetPassword() {
   passwordText.value = "";
- 
+
+  // Copies password to clipboard
+function copyPassword() {
+  document.getElementById("password").select();
+  document.execCommand("Copy");
+  alert("Your new password has been copied to your clipboard!");
 }
+
 // Write password to the #password input
 function writePassword() {
   var validEntry = getPrompts();
@@ -60,22 +72,24 @@ function getPrompts(){
     if(passwordLength < 8 || passwordLength > 128) {
     alert("Password length must be between 8 and 128 characters. Please try again.");
     return false;
- }
+  }
 
-  if (confirm("Would you like to include special characters in your password?")) {
+    if (confirm("Would you like to include special characters in your password?")) {
    passwordArray = passwordArray.concat(specialCharactersArray);
   }
 
-  if (confirm("Would you like to include numbers in your password?")) {
+    if (confirm("Would you like to include numbers in your password?")) {
    passwordArray = passwordArray.concat(numbersArray);
-  }
+   }
 
-  if (confirm("Would you like to include lowercase letters in your password?")) {
+    if (confirm("Would you like to include lowercase letters in your password?")) {
   passwordArray = passwordArray.concat(alphaLowercaseArray);
-  }
+   }
 
-  if (confirm("Would you like to include uppercase letters in your password?")) {
+    if (confirm("Would you like to include uppercase letters in your password?")) {
     passwordArray = passwordArray.concat(alphaUppercaseArray);
-  }
+    }
   return true;
+  }
 }
+
