@@ -1,15 +1,17 @@
-// Lower case alphabet lettes to use in password
-var alphaLowercaseArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-// Upper case alphabet to use in password 
-var alphaUppercaseArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-// Numbers to use in password
-var numbersArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 // Special symbols to use in password
-var specialCharactersArray =  [" ", "!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+var useSpecialCharactersArray =  [" ", "!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+// Numbers to use in password
+var useNumericArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+// Lower case alphabet lettes to use in password
+var useAlphaLowercaseArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+// Upper case alphabet to use in password 
+var useAlphaUppercaseArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+
 
 
 var passwordLength = 8;
 var passwordArray = []; 
+
 
 // Generates Password
 var generateBtn = document.querySelector("#generate");
@@ -67,52 +69,57 @@ for(var i = 0; i < passwordLength; i++) {
 
 function getPrompts(){
     passwordArray = [];
-    passwordLength = parseInt(prompt("How many characters would you like to use? Please enter between 8 and 128 characters."));
+    passwordLength = parseInt(
+      prompt(
+      "How many characters would you like to use? Please enter between 8 and 128 characters."
+      )
+    );
 
     if(passwordLength < 8 || passwordLength > 128) {
-    alert("Password length must be between 8 and 128 characters. Please try again.");
+    alert(
+      "Password length must be between 8 and 128 characters. Please try again."
+      );
     return false;
   }
 
-    if (confirm("Would you like to include special characters in your password?")) {
-   passwordArray = passwordArray.concat(specialCharactersArray);
+  // Variable to store boolean regarding the includsion of special characters. 
+    var uuseSpecialCharactersArray = confirm(
+      "Click OK to confirm that you would like to include special characters in your password."
+    );
+
+  // Variable to store boolean regarding the includsion of numberic characters. 
+  var useAlphaLowercaseArray = confirm(
+    "Click OK to confirm that you would like to include lowercase letters in your password."
+  );
+
+  // Variable to store boolean regarding the includsion of lowercase letters. 
+  var useAlphaUppercaseArray = confirm(
+    "Click OK to confirm that you would like to include uppercase letters in your password."
+  );
+
+  // Variable to store boolean regarding the inclusion of uppercase letters. 
+  var useNumbericArray = confirm(
+    "Click OK to confirm that you would like to include numbers in your password."
+  );
   }
+  if (
+  
+    useSpecialCharactersArray === false &&
+    useNumericArray === false &&
+    useAlphaLowercaseArray === false &&
+    useAlphaUppercaseArray === false
+  ) {
 
-    if (confirm("Would you like to include numbers in your password?")) {
-   passwordArray = passwordArray.concat(numbersArray);
-   }
-
-    if (confirm("Would you like to include lowercase letters in your password?")) {
-  passwordArray = passwordArray.concat(alphaLowercaseArray);
-   }
-
-    if (confirm("Would you like to include uppercase letters in your password?")) {
-    passwordArray = passwordArray.concat(alphaUppercaseArray);
-    }
-  return true;
+    alert("ERROR! You did not choose a password criteria. You must choose at least one.");
+    alert("Congratulations! You have auspiciously created a secure password! ");
+    return null;
   }
-}
-if (
-  specialCharactersArray === false &&
-  numbersArray === false &&
-  alphaLowercaseArray === false &&
-  symbols === false
-) {
-  alert("You must chose at least one Password criteria.");
-  return writePassword();
-} else {
-  alert("You Have Successfully Created A Strong Password");
-}
-//
-if (lowercases) {
-  passwordArray += key_strings.specialCharactersArray;
-}
-if (uppercases) {
-  passwordArray  += key_strings.nunumbersArray;
-}
-if (numbers) {
-  passwordArray  += key_strings.alphaLowercaseArray;
-}
-if (symbols) {
-  passwordArray  += key_strings.alphaUppercaseArray;
-}
+    var passwordArray; {
+    useAlphaLowercaseArray:useAlphaLowercaseArray;
+    useAlphaUppercaseArray:useAlphaUppercaseArray;
+    useNumbericArray:useNumbericArray;
+    useSpecialCharactersArray:useSpecialCharactersArray;
+    };
+
+    return passwordArray 
+  }
